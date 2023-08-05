@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.halfCards,
+.halfArticleImage {
+  margin-inline-start: 24px;
+}
+
+.halfCards,
+.leftColumn {
+  padding-inline-end: 24px;
+}
+
+.halfArticleCard {
+  display: flex;
+  width: 347px;
+  height: auto;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+}
+
+.halfArticleContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.halfArticleAttribution {
+  padding-top: 8px;
+}

@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 600px;
+  height: auto;
+  padding: 20px 40px 20px 20px;
+  position: relative;
+  border: 1px solid rgb(240, 240, 238);
+  background-color: rgb(255, 255, 255);
+  padding: 20px 40px 20px 20px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.date {
+  margin: 0px;
+  text-align: inherit;
+  font-family: Calibre, sans-serif;
+  font-size: 0.785rem;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 100%;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0px;
+  text-align: inherit;
+  font-family: Tiempos, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 120%;
+}
+
+.description {
+  margin: 0px;
+  text-align: inherit;
+  font-family: TiemposTextRegular, serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 130%;
+}
+
+.image {
+  margin-inline-end: 16px;
+}

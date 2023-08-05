@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+}
+
+.leftColumn {
+  padding: 24px;
+}
+
+.halfCard {
+  width: 576px;
+  height: 188px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f0f0ee;
+}
