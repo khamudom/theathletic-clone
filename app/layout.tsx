@@ -2,7 +2,6 @@ import './globals.css';
 import '../styles/fonts.css';
 import type { Metadata } from 'next';
 import { Navbar } from '../components';
-import { CardContextProvider } from '../context/CardContext';
 
 export const metadata: Metadata = {
   title: 'The Athletic Clone',
@@ -18,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <CardContextProvider>{children}</CardContextProvider>
+        {children}
       </body>
     </html>
   );
