@@ -5,7 +5,7 @@ const Advert = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        Advertisement
+        <span className={styles.title}>Advertisement</span>
         <div className={styles.ad}></div>
       </div>
     </div>

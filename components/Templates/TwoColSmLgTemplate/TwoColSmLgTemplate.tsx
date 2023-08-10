@@ -1,39 +1,62 @@
 import React from 'react';
-import { HalfCard, StandardCard } from '@/components';
+import { HalfCardMedium, StandardCard } from '@/components';
 import styles from './TwoColSmLgTemplate.module.css';
-import { CardProps } from '@/constants';
-import { ThreeTileDataOne, ArticleData } from '@/constants';
+import { ThreeTileData, ArticleData } from '@/constants';
 
-const TwoColSmLgTemplate: React.FC<CardProps> = ({ className }) => {
-  const firstTwoData = ThreeTileDataOne.slice(0, 2);
+type TwoColSmLgTemplateProps = {
+  className?: string;
+};
+
+const TwoColSmLgTemplate: React.FC<TwoColSmLgTemplateProps> = ({
+  className,
+}) => {
+  const firstTwoData = ThreeTileData.slice(0, 2);
 
   return (
     <div className={styles.container}>
       <div className={styles.leftColumn}>
-        {firstTwoData.map((article: ArticleData) => {
+        {firstTwoData.map((article: ArticleData, index: number) => {
           return (
-            <HalfCard
-              className={styles.halfCard}
+            <div
               key={article.id}
-              title={article.title}
-              imgSrc={article.image}
-              imgWidth={article.width}
-              imgHeight={article.height}
-            />
+              className={styles.halfCard}
+              style={{
+                borderBottom:
+                  index !== firstTwoData.length - 1
+                    ? '1px solid #F0F0EE'
+                    : 'none',
+                paddingBottom: index !== firstTwoData.length - 1 ? '24px' : '0',
+                paddingTop: index === firstTwoData.length - 1 ? '24px' : '0',
+              }}
+            >
+              <HalfCardMedium
+                title={article.title}
+                description={article.description}
+                imgSrc={article.image}
+                imgWidth={article.width}
+                imgHeight={article.height}
+                author={article.author}
+                commentCount={article.commentCount}
+              />
+            </div>
           );
         })}
       </div>
       <div className={styles.rightColumn}>
-        {ThreeTileDataOne.slice(2).map((article: ArticleData) => {
+        {ThreeTileData.slice(2).map((article: ArticleData) => {
           return (
-            <StandardCard
-              key={article.id}
-              title={article.title}
-              description={article.description}
-              imgSrc={article.image}
-              imgWidth={article.width}
-              imgHeight={article.height}
-            />
+            <div key={article.id} className={styles.standardCard}>
+              <StandardCard
+                title={article.title}
+                imgSrc={article.image}
+                imgWidth={article.width}
+                imgHeight={article.height}
+                author={article.author}
+                commentCount={article.commentCount}
+                fontSize="20px"
+                alignCenter
+              />
+            </div>
           );
         })}
       </div>

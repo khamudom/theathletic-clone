@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className = '',
   onClick,
-  type,
+  type = 'button',
   title,
   ref,
 }) => {

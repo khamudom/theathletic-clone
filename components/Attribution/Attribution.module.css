@@ -1,5 +1,20 @@
+@import url(../../styles/fonts.css);
+
 .container,
 .comment {
   display: flex;
   align-items: center;
+  font-family: Calibre, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25em;
+  color: #52524f;
+}
+
+.author {
+  margin-inline-end: 16px;
+}
+.icon {
+  display: flex;
+  margin-inline-end: 6px;
 }

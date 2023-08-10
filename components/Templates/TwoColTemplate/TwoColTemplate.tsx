@@ -1,38 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
 import styles from './TwoColTemplate.module.css';
-import { Attribution, StandardCard } from '@/components';
-import { ArticleData, topArticles, CardProps } from '@/constants';
+import { HalfCardSmall, StandardCard } from '@/components';
+import { ArticleData, topArticles } from '@/constants';
 
 interface TemplateTwoColumnProps {
   className?: string;
 }
-
-const HalfCardSmall: React.FC<CardProps> = ({
-  title,
-  imgSrc,
-  imgWidth,
-  imgHeight,
-}) => {
-  const imgUrl = imgSrc || '';
-  return (
-    <div className={styles.halfArticleCard}>
-      <div className={styles.halfArticleContent}>
-        <h4>{title}</h4>
-        <div className={styles.halfArticleAttribution}>
-          <Attribution />
-        </div>
-      </div>
-      <Image
-        className={styles.halfArticleImage}
-        src={imgUrl}
-        alt="article image"
-        width={imgWidth}
-        height={imgHeight}
-      />
-    </div>
-  );
-};
 
 const TemplateTwoColumn: React.FC<TemplateTwoColumnProps> = ({ className }) => {
   const topArticle = topArticles[0];
@@ -47,18 +20,33 @@ const TemplateTwoColumn: React.FC<TemplateTwoColumnProps> = ({ className }) => {
             imgSrc={topArticle.image}
             imgWidth={topArticle.width}
             imgHeight={topArticle.height}
+            author={topArticle.author}
+            commentCount={topArticle.commentCount}
+            fontSize="1.28rem"
           />
         </div>
-        <div className={styles.halfCards}>
-          {topArticles.slice(1).map((article: ArticleData) => {
+        <div className={styles.rightColumn}>
+          {topArticles.slice(1).map((article: ArticleData, index: number) => {
             return (
-              <HalfCardSmall
+              <div
                 key={article.id}
-                title={article.title}
-                imgSrc={article.image}
-                imgWidth={article.width}
-                imgHeight={article.height}
-              />
+                className={styles.card}
+                style={{
+                  borderBottom:
+                    index !== topArticles.length - 2
+                      ? '1px solid #F0F0EE'
+                      : 'none',
+                }}
+              >
+                <HalfCardSmall
+                  title={article.title}
+                  imgSrc={article.image}
+                  imgWidth={article.width}
+                  imgHeight={article.height}
+                  author={article.author}
+                  commentCount={article.commentCount}
+                />
+              </div>
             );
           })}
         </div>

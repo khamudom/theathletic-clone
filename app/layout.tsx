@@ -1,4 +1,5 @@
 import './globals.css';
+import '../styles/fonts.css';
 import type { Metadata } from 'next';
 import { Navbar } from '../components';
 import { CardContextProvider } from '../context/CardContext';

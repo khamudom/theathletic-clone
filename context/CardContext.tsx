@@ -1,37 +1,32 @@
 'use client';
 
-import React, {
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from 'react';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import React, { createContext, useContext, useState } from 'react';
+import { CardProps } from '@/types';
 
-interface CardType {
-  title?: string;
-  description?: string;
-  imgSrc?: string | StaticImport;
-  imgWidth?: number;
-  imgHeight?: number;
-  className?: string;
+interface CardPContextData {
+  cards: CardProps[];
+  setCards: (card: CardProps[]) => void;
 }
 
-interface CardContextValue {
-  cardData: CardType[];
-  setCardData: React.Dispatch<SetStateAction<CardType[]>>;
-}
+const defaultCardContextData: CardPContextData = {
+  cards: [],
+  setCards: () => {},
+};
 
-export const CardContext = createContext<CardContextValue>({
-  cardData: [],
-  setCardData: () => {},
-});
+export const CardContext = createContext<CardPContextData>(
+  defaultCardContextData
+);
 
 export const CardContextProvider = ({ children }: any) => {
-  const [cardData, setCardData] = useState<[] | CardType[]>([]);
+  const [cardData, setCardData] = useState<[] | CardProps[]>([]);
+
+  const CardContextValue = {
+    cards: cardData,
+    setCards: setCardData,
+  };
 
   return (
-    <CardContext.Provider value={{ cardData, setCardData }}>
+    <CardContext.Provider value={CardContextValue}>
       {children}
     </CardContext.Provider>
   );

@@ -1,0 +1,21 @@
+@import url(../../../styles/fonts.css);
+
+.container {
+  display: flex;
+  border: 1px solid transparent;
+}
+
+.content {
+  font-family: TiemposHeadline, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.attribution {
+  padding-top: 8px;
+}
+
+.image {
+  margin-inline-end: 24px;
+}

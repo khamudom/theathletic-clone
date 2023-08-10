@@ -4,12 +4,17 @@
   height: 100%;
 }
 
-.halfCards,
+.leftColumn,
+.rightColumn {
+  border-right: 1px solid #f0f0ee;
+}
+
+.rightColumn,
 .halfArticleImage {
   margin-inline-start: 24px;
 }
 
-.halfCards,
+.rightColumn,
 .leftColumn {
   padding-inline-end: 24px;
 }
@@ -30,4 +35,9 @@
 
 .halfArticleAttribution {
   padding-top: 8px;
+}
+
+.card {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
 }

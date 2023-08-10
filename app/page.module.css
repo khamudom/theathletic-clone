@@ -14,12 +14,6 @@
   margin: 32px auto;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 24px;
-}
-
 .headlineSection {
   display: flex;
 }
@@ -27,4 +21,21 @@
 .aside {
   width: 300px;
   padding-top: 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  letter-spacing: 0.065em;
+  color: rgb(82, 82, 79);
+}
+
+.headline {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 500;
+  font-family: Calibre, sans-serif;
+  text-transform: uppercase;
 }

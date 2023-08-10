@@ -2,14 +2,21 @@ import React from 'react';
 import { MdModeComment } from 'react-icons/md';
 import styles from './Attribution.module.css';
 
-const Attribution = () => {
+type AttributionProps = {
+  author: string;
+  commentCount: number;
+};
+
+const Attribution: React.FC<AttributionProps> = ({ author, commentCount }) => {
   return (
     <div className={styles.container}>
-      Author
-      <div className={styles.comment}>
-        <MdModeComment />
-        50
-      </div>
+      <p className={styles.author}>{author}</p>
+      <p className={styles.comment}>
+        <span className={styles.icon}>
+          <MdModeComment />
+        </span>
+        {commentCount}
+      </p>
     </div>
   );
 };

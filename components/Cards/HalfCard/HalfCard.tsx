@@ -1,41 +1,50 @@
-import React, { useContext } from 'react';
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
 import styles from './HalfCard.module.css';
 import { Attribution } from '@/components';
-import { CardProps } from '@/constants';
+import { CardProps } from '@/types';
 
-const HalfCard: React.FC<CardProps> = ({
+interface HalfCardProps extends CardProps {
+  className?: string;
+}
+
+const HalfCard: React.FC<HalfCardProps> = ({
   className,
+  date,
   title,
   description,
   imgSrc,
   imgWidth,
   imgHeight,
+  author,
+  commentCount,
 }) => {
   const imgUrl = imgSrc || '';
+  const authorName = author || '';
+  const commentNum = commentCount || 0;
 
   return (
-    <div className={`${className}`}>
+    <>
       <a className={styles.container}>
-        <Image
-          className={styles.image}
-          src={imgUrl}
-          alt="article image"
-          width={imgWidth}
-          height={imgHeight}
-        />
         <div className={styles.content}>
-          <div className={styles.date}>
-            <span>Aug 2</span>
-          </div>
+          <span className={styles.date}>{date}</span>
           <div className={styles.headline}>
             <h5 className={styles.title}>{title}</h5>
             <p className={styles.description}>{description}</p>
           </div>
-          <Attribution />
+          <Attribution author={authorName} commentCount={commentNum} />
         </div>
+        <Image
+          className={styles.image}
+          src={imgUrl}
+          alt={`Image for ${title}`}
+          width={imgWidth}
+          height={imgHeight}
+        />
       </a>
-    </div>
+    </>
   );
 };
 
